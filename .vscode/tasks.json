@@ -5,7 +5,7 @@
             "label": "C/C++: gcc.exe générer et executer le fichier actif",
             "command": "gcc -o 'out\\${fileBasenameNoExtension}.exe' '${relativeFile}' ''; out\\${fileBasenameNoExtension}.exe",
             "options": {
-                "cwd": "C:\\Users\\Clara\\Documents\\AS\\C"
+                "cwd": "C:\\Users\\Clara\\Documents\\AS\\Langage-C"
             },
             "presentation": {
                 "reveal": "always",
