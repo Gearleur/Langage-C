@@ -38,6 +38,6 @@ void main()
     scanf("%d", &n);
     tab = Eratos(n);
     for(i =0 ; i < n; i++)
-        if (tab[i]==0)
+        if (tab[i]==1)
             printf("%d: %d\n",i,tab[i]);
 }
