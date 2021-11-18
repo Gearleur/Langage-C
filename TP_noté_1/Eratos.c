@@ -22,7 +22,6 @@ int* Eratos(int n)
             {
                 ta[j] = 0;
                 j += i;
-
             }
         }
     }
