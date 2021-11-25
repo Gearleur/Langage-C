@@ -26,7 +26,7 @@ int* Eratos(int n)
     return ta;
 }
 
-void main()
+int main()
 {
     int n;
     int *tab;
@@ -36,5 +36,6 @@ void main()
     tab = Eratos(n);
     for(i =0 ; i < n; i++)
         printf("%d: %d\n",i,tab[i]);
+    return 0;
 }
 
