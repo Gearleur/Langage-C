@@ -16,6 +16,19 @@ char* copie(char *s1)
     return s2;
 }
 
+char* inverse (char *s1)
+{
+    int i, j, k;
+    char tmp;
+    for ( i = 0; j = strlen(s1)-1; i < j, ++i, j-- )
+    {
+        tmp = s1[i];
+        s1[i] = s1 [j];
+        s1 [j] = tmp;
+    }
+    return s1;
+}
+
 void main()
 {
     char s1[LONG];
