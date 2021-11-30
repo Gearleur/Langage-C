@@ -58,7 +58,7 @@ char * copied(char * s)
 {
     int nbcases;
     int i;
-    char * p;
+    char *p;
     nbcases = strlen(s) + 1;
     p = (char*)malloc(nbcases* sizeof(char));
     for ( i = 0; s[i] != '\0'; i++)
@@ -136,7 +136,7 @@ char * saisied()
     }
     while( c != '\n');
     *--p1 = '\0';
-    res = (char)malloc((strlen(tmp) + 1)*sizeof(char));
+    res = (char*)malloc((strlen(tmp) + 1)*sizeof(char));
     p1 = tmp;
     p2 = res;
     while( (*p2++ = *p1++) !='\0');
@@ -144,7 +144,7 @@ char * saisied()
 
 int main()
 {
-    char s1[100] = 'salut';
+    char s1[100] = "salut";
     char * s2, *s3;
     s2 = copied(s1);
     printf("%s",s2);
