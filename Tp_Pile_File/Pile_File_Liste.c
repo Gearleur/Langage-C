@@ -1,28 +1,40 @@
 #include <stdio.h>
-#include "modules/Pile.h"
+#include <stdlib.h>
+#include "..\modules\list.h"
 
 int main(void)
 {
 
 /*----------------------------------------------------------------*/
 
-    Stack sta = new_stack();
+    List mylist = new_list();
+    print_list(mylist);
 
-    if (is_empty_stack(sta))
-        printf("La pile est vide\n");
-    else
-        printf("La pile contient des elements\n");
+    mylist = push_front_list(mylist, 87);
+    mylist = push_front_list(mylist, 8);
+    mylist = push_front_list(mylist, 12);
+    mylist = push_back_list(mylist, 3);
+    mylist = push_back_list(mylist, 98);
+    mylist = push_back_list(mylist, 22);
+    mylist = push_back_list(mylist, 7);
+    print_list(mylist);
+
+    mylist = pop_front_list(mylist);
+    print_list(mylist);
+
+    mylist = add_normal_list(mylist, 1, 5);
+    print_list(mylist);
+
+    mylist = pop_normal_list(mylist, 3);
+    print_list(mylist);
+
+    int i = recherche_list(mylist, 300);
+    printf("%d\n", i);
     
-    sta = push_stack(sta, 14);
-    sta = push_stack(sta,47);
-
-    print_stack(sta);
-
-    sta = clear_stack(sta);
+    mylist = clear_list(mylist);
+    print_list(mylist);
 
 /*----------------------------------------------------------------*/
-
-
 
     return 0;
 }
