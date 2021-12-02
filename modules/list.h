@@ -4,8 +4,8 @@
 /* def type booleen */
 typedef enum Bool
 {
-    false,
-    true
+    false,//0
+    true//1
 }Bool;
 
 /* Definition d'une liste */
@@ -28,5 +28,6 @@ List pop_front_list(List li);
 List pop_normal_list(List li, int p);
 List clear_list(List li);
 int recherche_list(List li, int x);
+List trie_list(List li);
 
 #endif

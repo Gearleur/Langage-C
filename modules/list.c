@@ -38,16 +38,18 @@ int list_length(List li)
 
 void print_list(List li)
 {
-    if(is_empty_list(li))
+    List element = li;
+
+    if(is_empty_list(element))
     {
         printf("Rien a afficher la list est vide\n");
         return;
     }
 
-    while(li != NULL)
+    while(element != NULL)
     {
-        printf("[%d] ", li->value);
-        li = li->next;
+        printf("[%d] ", element->value);
+        element = element->next;
     }
 
     printf("\n");
@@ -88,9 +90,9 @@ List push_back_list(List li, int x)
 
 List push_front_list(List li, int x)
 {
-    ListElement *element;
+    List element;
 
-    element = malloc(sizeof(*element));
+    element = (List)malloc(sizeof(ListElement));
 
     if(element == NULL)
     {
@@ -146,9 +148,9 @@ List pop_front_list(List li)
     if(is_empty_list(li))
         return li;
 
-    ListElement *element;
+    List element;
 
-    element = malloc(sizeof(*element));
+    element = (List)malloc(sizeof(ListElement));
 
     if(element == NULL)
     {
@@ -199,9 +201,9 @@ List add_normal_list(List li,int p, int x)
         return li;
     }
 
-    ListElement *element;
+    List element;
 
-    element = malloc(sizeof(*element));
+    element = (List)malloc(sizeof(ListElement));
 
     if(element == NULL)
     {
@@ -248,15 +250,6 @@ List pop_normal_list(List li, int p)
         return li;
     }
 
-    ListElement *element;
-
-    element = malloc(sizeof(*element));
-
-    if(element == NULL)
-    {
-        fprintf(stderr, "Erreur allocation");
-        exit(EXIT_FAILURE);
-    }
 
     ListElement *temp = li->next;
     ListElement *after= temp->next;
@@ -299,3 +292,39 @@ int recherche_list(List li, int x)
 
     return i;
 }
+
+/*------------------------------------------------------*/
+
+List trie_list(List li)
+{
+    if(is_empty_list(li))
+        return li;
+    
+    ListElement *after = li->next;
+    ListElement *before = li;
+    int temp = 0;
+    
+    Bool permut = true;
+
+
+    while(permut==true) 
+    {
+        permut = false;
+        for(before = li, after = li->next; before->next !=NULL; before = before->next)
+        {
+            if(before->value > after->value)
+            {
+                temp = before->value;
+                before->value = after->value;
+                after->value = temp;
+                permut = true;
+            }
+
+            after = after->next;
+        }
+    }
+
+    return li;
+}
+
+/*------------------------------------------------------*/
