@@ -29,7 +29,7 @@ int main(void)
     mylist = push_front_list(mylist, 2);
     print_list(mylist);
 
-    mylist = add_normal_list(mylist, 1, 14);
+    mylist = add_normal_list(mylist, 2, 14);
     print_list(mylist);
 
     mylist = pop_normal_list(mylist, 3);

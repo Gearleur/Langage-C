@@ -214,7 +214,7 @@ List add_normal_list(List li,int p, int x)
     ListElement *temp = li;
     ListElement *before = li;
 
-    for(int i = 1; i<p; i++)
+    for(int i = 0; i<p-1; i++)
     {
         before = temp;
         temp = temp->next;
