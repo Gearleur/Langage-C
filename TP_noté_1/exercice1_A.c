@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
-int premier(unsigned int n)
+int premier(unsigned int n, int *count)
 {
+    *count = 1;
     unsigned int i;
     if (n == 2 || n == 3 )
     {
@@ -14,6 +15,7 @@ int premier(unsigned int n)
     }
     for (i = 5; i <= sqrt(n); i +=2 )
     {
+        (*count)++;
         if (n % i == 0)
         {
             return 0;
@@ -28,14 +30,15 @@ int premier(unsigned int n)
 void main()
 {
     unsigned int n;
+    int c;
     printf("Entrer un nombre: \n");
     scanf("%ld", &n);
-    if(premier(n))
+    if(premier(n, &c))
     {
-        printf("le nombre est premier");
+        printf("le nombre est premier et iteration = %d\n", c);
     }
     else
     {
-        printf("Le nombre n'est pas premier");
+        printf("Le nombre n'est pas premier et iteration = %d\n", c);
     }
 }
