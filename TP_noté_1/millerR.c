@@ -40,7 +40,7 @@ long long modulo(long long base, long long exposant, long long mod)
 /*
  * Test de primalité de Miller-Rabin, l'itération pour la précision
  */
-int Miller(long long p,int iteration)
+int Miller(long long int p,int iteration, int *count)
 {
     long long d;
     if (p < 2)
@@ -54,6 +54,7 @@ int Miller(long long p,int iteration)
     d = p - 1;
     while (d%2 == 0)
     {
+        (*count)++;
         d = d / 2;
     }
     for (int i = 0; i < iteration; i++)
@@ -63,6 +64,7 @@ int Miller(long long p,int iteration)
         long long mod = modulo(a, temp, p);
         while (temp != p - 1 && mod != 1 && mod != p - 1)
         {
+            (*count)++;
             mod = mulmod(mod, mod, p);
             temp = temp * 2;
         }
@@ -78,11 +80,15 @@ int main()
 {
     int iteration = 5;
     long long num;
+    int c = 0;
     printf("Entrer un entier pur tester sa primalitE: ");
-    scanf("%lld", &num);
-    if ( Miller( num, iteration))
-        printf("\n%lld est premier\n", num);
-    else
-        printf("\n%lld n'est pas premier\n", num);
+    for(int i = 3; i <= 1000000; i++)
+    {
+        if ( Miller(rand(), iteration, &c))
+            printf("");
+        else
+            printf("");
+    }
+    printf("%d\n", c);
     return 0;
 }

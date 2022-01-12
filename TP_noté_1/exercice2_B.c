@@ -68,5 +68,5 @@ void main()
     long int n;
     printf("Entrer un nombre: \n");
     scanf("%ld", &n);
-    Parfait_inf(n);
+    Parfait_inf2(n);
 }

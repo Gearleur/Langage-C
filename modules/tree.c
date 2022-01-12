@@ -2,8 +2,8 @@
 
 /**
 * Créée un nouvel Arbre
-* @param x La valeur de la racine
-* @return Le nouvel arbre créé
+* param x La valeur de la racine
+* return Le nouvel arbre créé
 */
 Tree *new_tree(int x)
 {
@@ -20,8 +20,6 @@ Tree *new_tree(int x)
 	tr->tleft = NULL;
 	tr->tright = NULL;
 
-	//Aide pour le développeur
-	//printf("Creation de %d...\n", tr->value);
 
 	return tr;
 }
@@ -30,7 +28,7 @@ Tree *new_tree(int x)
 
 /**
 * Nettoie un arbre
-* @param tr L'arbre à vider de ses valeurs
+* param tr L'arbre à vider de ses valeurs
 */
 void clean_tree(Tree *tr)
 {
@@ -50,10 +48,10 @@ void clean_tree(Tree *tr)
 
 /**
 * Joint deux arbres pour n'en former qu'un
-* @param left L'arbre de gauche
-* @param right L'arbre de droite
-* @param node Le noeud qui lie les deux arbres
-* @return Le nouvel arbre formé
+* param left L'arbre de gauche
+* param right L'arbre de droite
+* param node Le noeud qui lie les deux arbres
+* return Le nouvel arbre formé
 */
 Tree *join_tree(Tree *left, Tree *right, int node)
 {
@@ -74,7 +72,7 @@ Tree *join_tree(Tree *left, Tree *right, int node)
 
 /**
 * Affiche un arbre récursivement (parcours préfixé)
-* @param tr L'arbre à parcourir
+* param tr L'arbre à parcourir
 */
 void print_tree_prefix(Tree *tr)
 {
@@ -97,8 +95,8 @@ void print_tree_prefix(Tree *tr)
 
 /**
 * Compte le nombre de noeuds d'un arbre
-* @param tr L'arbre dont il faut compter les noeuds
-* @return Le nombre de noeuds de l'arbre binaire
+* param tr L'arbre dont il faut compter les noeuds
+* return Le nombre de noeuds de l'arbre binaire
 */
 int count_tree_nodes(Tree *tr)
 {
