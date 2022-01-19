@@ -140,6 +140,8 @@ char * saisied()
     p1 = tmp;
     p2 = res;
     while( (*p2++ = *p1++) !='\0');
+    free(tmp);
+    return res;
 }
 
 int main()

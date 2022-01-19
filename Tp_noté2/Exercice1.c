@@ -45,6 +45,46 @@ char* Saisie2()
     return nv;
 }
 
+// hypothèse il n'y a pas de chaine composé uniquement du caractère a supprimer
+// 
+
+void supprimer(char** tab, char elt)
+{
+    int i;
+    for(i = 0; tab[i] != NULL; i++) 
+    {
+        tab[i] = suppresion(tab[i], elt);
+        //ou suppression(&tab[i], elt);
+
+
+    }
+}
+
+char** surpprimens(char** tab, char car)
+{
+    int i, j, nbc, occ;
+    char** res;
+    occ = 0;
+    j = 0;
+    for(i = 0; tab[i] != NULL; i++)
+    {
+        if (tab[i][0] == car)
+            occ++;
+    }
+    nbc = i - occ + 1;
+    res = (char**) malloc(nbc * sizeof(char*));
+    for (i = 0; tab[i] != NULL; i++)
+    {
+        if( tab[i][0] != car)
+            res[j++] = tab[i];
+        else
+            free(tab[i]);
+    }
+    res[j] = NULL;
+    free(tab);
+    return res;
+}
+
 int main()
 {
     char *tab;
