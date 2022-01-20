@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
 int exo2()
 {
  double pi = 3.14;
@@ -53,15 +54,15 @@ void Incremente(int *val) // val : paramètre formel
 {
  *val = *val + 1;
 }
-int main()
+/*int main()
 {
  int x = 148;
  Incremente(&x); // x : paramètre réel
 
  printf("x vaut %d\n", x); // x devrait valoir 149
  exit(0);
-}
-
+}*/
+/*
 // exo 7
 int schtroumpf(int *t1, int ta1, int* t2, int ta2)
 {
@@ -71,6 +72,15 @@ int schtroumpf(int *t1, int ta1, int* t2, int ta2)
             res = res + t1[i] + t2[j];
     return res;
 }
+*/
+
+int main() 
+{
+ double pi = 3.14;
+ printf("La valeur de pi est %lf\n");
+ return 0;
+}
+
 
 
 // reponse //
