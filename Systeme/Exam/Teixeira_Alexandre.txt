@@ -1,0 +1,120 @@
+Amiens le, 18/03
+Département d'études : Informatique
+Nom: Teixeira
+Prénom: Alexandre
+Groupe: AS
+Epreuve: Prog Systeme
+
+Exercice 1
+
+//---- main.c ----\\
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "ecureuil.h"
+
+/*prototypage des fonctions */
+
+double calcul(int, double);
+void affichage(double, int, double);
+
+int main(int argn, char* argv[])
+{
+    double si, sf; int an;
+
+    /*verification du nombre d'arguments passés au programme */
+    if (argn != 3)
+    {
+        fprintf(stderr,"nombre d'argument invalid\n");
+        exit(2);
+    }
+
+    si = atof(argv[1]);
+    an = atoi(argv[2]);
+
+    /*calcul du capital */
+    sf = calcul(an, si);
+
+    /*affichage du capital final*/
+    affichage(si, an, sf);
+
+    exit(0);
+}
+
+//---- calcul.c ----\\
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "ecureuil.h"
+
+int calcul(int annee, double si)
+{
+    double res = si;
+    for (int i = 0; i < annee; i++)
+    {
+        res += TAUX/100*res;
+    }
+
+    return res;
+}
+
+//---- affichage.c ----\\
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void affichage(double si, int annee, double sf)
+{
+    printf("Capital final fourni par %.2lf euros placés sur %d annees : %.2lf\n", si, annee, sf);
+}
+
+//---- ecureuil.h ----\\
+
+#define TAUX 0.75
+
+
+//---- Makefile ----\\
+
+ecureuil: main.o calcul.o affichage.o
+    gcc -o ecureuil main.o calcul.o affichage.o
+
+main.o: main.c
+    gcc -c main.c
+calcul.o: calcul.c ecureuil.h
+    gcc -c calcul.c
+affichage.o: affichage.c
+    gcc -c affichage.c
+
+clean: rm affichage.o calcul.o main.o ecureuil
+
+#EXERCICE 2
+
+1.a) Le message d'erreur est du a la non definition du logarithme néperien (la fonction).
+1.b) Pour résoudre ce problème, il suffit d'inclure la bibliothèque math lors de la compilation:
+    c'est a dire -lm.
+
+2) Le typage, le prototypage et les define ce font dans les fichier d'inclusion
+    c'est a dire dans le fichier .h lié a la bibliothèque math.
+
+3a) La différence entre une bibliothèque statique et dynamique:
+    bibliothqèue statique: le code de la bibliothèque est inclus au code binaire du programme
+                            - Obtention executable volumineux
+                            + Contient tout ce qui est necessaire
+                            - ne peut pas etre mise a jour toute seul
+                            - ne peut pas être partagée
+    bibliothèque dynamique: le code de la bibliothèquen'est pas inclus au code binaire
+                            + executable -volumineux
+                            + economie de mémoire vive
+                            + peut se partager
+
+3b) La difference entre une bibliothèque et un fichier d'inclusion est que:
+    la bibliothèque contient le code source des fonctions.
+    le fichier d'inclusion lui ne contient que les prototypage, les types et define.
+
+3c) La configuration make permet de ne pas recompiler tous les fichiers a chaque fois. Cela permet
+    de ne recompiler que les fichiers mises à jour, Puis de remonter l'arbre des fichiers.
+
+
+
+
+
