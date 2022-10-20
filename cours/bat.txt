@@ -1,0 +1,17 @@
+SET list=
+>nul find "modules\list.h" %1 && (
+	SET list= modules\list.c
+)
+>nul find "modules\Pile.h" %1 && (
+	SET list=%list% modules\Pile.c
+)
+>nul find "modules\file.h" %1 && (
+	SET list=%list% modules\file.c
+)
+>nul find "modules\dlist.h" %1 && (
+	SET list=%list% modules\dlist.c
+)
+
+>nul find "modules\tree.h" %1 && (
+	SET list=%list% modules\tree.c
+)
