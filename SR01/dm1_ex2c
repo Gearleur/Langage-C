@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+/* On recupere N note et on les place dans un tableau*/
+
+int* recupere_note(int N)
+{
+    int i;
+    int *POINT = (int*)malloc(N * sizeof(int));
+    for (i = 0; i < N; i++)
+    {
+        printf("Entrez la note %d: ", i + 1);
+        scanf("%d", &POINT[i]);
+    }
+    return tab;
+}
+
+/* On recupere un fichier txt avec des notes et on les mets dans un tableau*/
+
+int* recupere_note_fichier(char file)
+{
+    int i;
+    int *POINT = (int*)malloc(sizeof(int));
+    FILE *fichier = fopen(file, "r");
+    for (i = 0; i < N; i++)
+    {
+        fscanf(fichier, "%d", &tab[i]);
+        POINT = (int*)realloc(tab,(i + 1) * sizeof(float));
+    }
+    fclose(fichier);
+    return tab;
+}
+
+/* trouver la note maximale du tableau*/
+
+int max(int *tab)
+{
+    int i;
+    int N = sizeof(tab) / sizeof(int);
+    int max = tab[0];
+    for (i = 0; i < N; i++)
+    {
+        if (tab[i] > max)
+        {
+            max = tab[i];
+        }
+    }
+    return max;
+}
+
+/* trouver la note minimum du tableau*/
+
+int min(int *tab)
+{
+    int i;
+    int N = sizeof(tab) / sizeof(int);
+    int min = tab[0];
+    for (i = 0; i < N; i++)
+    {
+        if (tab[i] < min)
+        {
+            min = tab[i];
+        }
+    }
+    return min;
+}
+
+/* trouver la moyenne du tableau*/
+
+float moyenne(int *tab)
+{
+    int i;
+    int N = sizeof(tab) / sizeof(int);
+    float moyenne = 0;
+    for (i = 0; i < N; i++)
+    {
+        moyenne += tab[i];
+    }
+    moyenne = moyenne / N;
+    return moyenne;
+}
+
