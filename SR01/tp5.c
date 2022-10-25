@@ -70,5 +70,3 @@ char *mystrncpy(char *s1, char *s2, int n)
     }
     s2[strlen(s2)] = '\0';
 }
-
-/* Ecrire un programmes de test  teststring.c  qui permet de tester l'ensemble des fonctions de la bibliothèque.*/
