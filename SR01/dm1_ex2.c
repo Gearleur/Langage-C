@@ -157,8 +157,9 @@ void graph_nuage(int *note)
         cp[i] = note[i];
     int* zeros = zero(note, 7);
     int nbr = max2(cp, 7)[0];
+    printf("%d", nbr);
     tp[0]=0;
-    for(int i=0;i<nbr-2;i++)
+    for(int i=0;i<nbr;i++)
     {
         l = 1;
         max = max2(cp, 7);
@@ -203,6 +204,6 @@ void graph_nuage(int *note)
 
 void main() 
 {
-    int note[7] = {1, 4, 7, 5, 3, 2, 6};
+    int note[7] = {1, 1, 2, 2, 3, 3, 3};
     graph_nuage(note);
 }

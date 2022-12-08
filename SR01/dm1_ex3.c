@@ -139,7 +139,7 @@ void afficher_restaurants(Restaurant restaurants[], int size)
         printf("Nom du restaurant : %s", restaurants[i].nom_restaurant);
         printf("Adresse du restaurant : %s", restaurants[i].adresse_restaurant);
         printf("Position du restaurant : %s", restaurants[i].position_restaurant);
-        printf("Spécialité du restaurant : %s", restaurants[i].specialite);
+        printf("Spécialité du restaurant : %s\n", restaurants[i].specialite);
     }
 }
 
